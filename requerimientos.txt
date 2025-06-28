@@ -1,2 +1,0 @@
-crear clase campaña
-crear clase anuncio
