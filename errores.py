@@ -1,4 +1,4 @@
-import datetime
+
 import pytz
 
 tz_CL = pytz.timezone('America/Santiago')
@@ -7,12 +7,21 @@ datetime_CL = datetime.datetime.now(tz_CL)
 ruta_log = "error.log"
 
 
+
 class Error(Exception):
-    with open(ruta_log, "a+") as log:
-                log.write(f"{datetime_CL.strftime("%d/%m/%Y %H:%M:%S")}, {Exception} \n")
+    def __init__(self, mensaje="Ha ocurrido un error"):
+        self.timestamp = datetime.datetime.now(pytz.timezone('America/Santiago'))
+        self.nombre_error = self.__class__.__name__
+        self.mensaje = mensaje
+        with open(ruta_log, "a+", encoding="utf-8") as log:
+            log.write(f"{self.timestamp.strftime('%d/%m/%Y %H:%M:%S')} - {self.nombre_error}: {self.mensaje}\n")
+        super().__init__(mensaje)
 
 class LargoExcedidoError(Error):
-    print("jajajaja")
+    def __init__(self, mensaje="Nombre excede los 250 caracteres"):
+        super().__init__(mensaje)
 
 class SubTipoInvalidoError(Error):
-    pass
+    def __init__(self):
+        mensaje = "Subtipo ingresado no es válido"
+        super().__init__(mensaje)

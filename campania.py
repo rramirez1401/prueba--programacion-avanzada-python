@@ -3,7 +3,7 @@ from anuncio import *
 from errores import *
 
 class Campania:
-    def __init__(self, nombre:str, fecha_inicio:date, fecha_termino:date, *datos_anuncio):
+    def __init__(self, nombre:str, fecha_inicio, fecha_termino, *datos_anuncio):
         self.__nombre = nombre
         self.__fecha_inicio = fecha_inicio
         self.__fecha_termino = fecha_termino
@@ -40,7 +40,7 @@ class Campania:
             self.__nombre = nombre
 
         else:
-            raise LargoExcedidoError("El largo del texto supera los 250 caracteres")
+            raise LargoExcedidoError()
 
     ##### GETTER Y SETER FECHA_INICIO #####   
     @property

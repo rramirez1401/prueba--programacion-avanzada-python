@@ -1,6 +1,13 @@
+
+# ESTE SCRIPT DEMO PERMITE INSTANCIAR LA CLASE CAMPANIA INGRESANDO EL NOMBRE Y LAS FECHAS REQUERIDAS CONTANDO CON LA FUNCION CREAR_CAMPANIA
+# ADEMAS CUENTA CON LA FUNCION AGREGAR ANUNCIO PARA QUE AL MOMENTO DE INSTANCIAR LA CAMPAÑA AUTOMATICAMENTE LLAME A ESTA FUNCION PARA INCLUIR
+# LOS DATOS REQUERIDOS PARA CREAR EL PRIMER ANUNCIO.
+# POSTERIORMENTE SE EJECUTA LA FUNCION MENU_PRINCIPAL EN DONDE SE OFRECE LA OPCION DE AGREGAR MAS ANUNCIOS, MODIFICAR EL NOMBRE DE LA CAMPAÑA,
+# VISUALIZAR LOS DATOS DE LA CAMPAÑA Y VISUALIZAR LOS TIPOS Y FORMATOS DE LOS ANUNCIOS
+
 from datetime import datetime
 from campania import *
-
+from errores import *
 
 
 def agregar_anuncio(creacion=False):
@@ -58,7 +65,7 @@ def agregar_anuncio(creacion=False):
 def crear_campana():
     nombre_campania = input("Elige un nombre para tu campaña (máximo 250 caracteres):\n\n    >>>")
     if len(nombre_campania) > 10:
-            raise LargoExcedidoError("El largo del texto supera los 250 caracteres")
+            raise LargoExcedidoError()
 
     while True:
         fecha1 = input("Ingresa una fecha de inicio de campaña en formato 'DD, MM, AAAA': ")
@@ -91,9 +98,11 @@ def menu_principal(mi_campania):
 2. Visualizar datos de la campaña
 3. Modificar nombre de campaña
 4. Visualizar tipos y formatos de anuncios
-5. 
+5. Salir
     """)
         opcion = input("\n        >>> ")
+        if opcion not in ["1","2","3","4","5"]:
+            continue
         if opcion == "1":
 
             while True:
@@ -110,6 +119,10 @@ def menu_principal(mi_campania):
         elif opcion == "3":
             nuevo_nombre = input("Ingrese el nuevo nombre (Máximo 250 caracteres)")
             mi_campania.nombre = nuevo_nombre
+
+        elif opcion == "4":
+            print(Anuncio.mostrar_formatos())
+            input("\nEnter para continuar...")
 
 
 

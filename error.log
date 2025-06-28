@@ -1,5 +1,3 @@
-28/06/2025 14:53:41, <class 'Exception'> 
-28/06/2025 14:53:47, <class 'Exception'> 
-28/06/2025 14:53:49, <class 'Exception'> 
-28/06/2025 14:53:54, <class 'Exception'> 
-28/06/2025 14:53:56, <class 'Exception'> 
+
+28/06/2025 15:44:08 - LargoExcedidoError: aaaaaaaaaaaa
+28/06/2025 15:44:33 - LargoExcedidoError: Nombre excede los 250 caracteres

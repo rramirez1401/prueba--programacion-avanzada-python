@@ -64,7 +64,7 @@ class Anuncio(ABC):
         or isinstance(self, Social) and sub_tipo in Social.sub_tipo):
             self.__sub_tipo = sub_tipo
         else:
-            raise SubTipoInvalidoError("Error de subtipo")
+            raise SubTipoInvalidoError()
 
 
     ##### MÉTODOS DE LA CLASE ANUNCIO #####
