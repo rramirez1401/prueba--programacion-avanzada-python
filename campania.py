@@ -1,9 +1,9 @@
 from datetime import datetime, date
-from anuncio import *
-from errores import *
+from anuncio import Video, Display, Social 
+from errores import LargoExcedidoError
 
 class Campania:
-    def __init__(self, nombre:str, fecha_inicio, fecha_termino, *datos_anuncio):
+    def __init__(self, nombre:str, fecha_inicio:date, fecha_termino:date, *datos_anuncio):
         self.__nombre = nombre
         self.__fecha_inicio = fecha_inicio
         self.__fecha_termino = fecha_termino

@@ -1,14 +1,14 @@
+from datetime import datetime
+from campania import Campania
+from anuncio import Anuncio, Video, Display, Social 
+from errores import LargoExcedidoError, SubTipoInvalidoError
+
 
 # ESTE SCRIPT DEMO PERMITE INSTANCIAR LA CLASE CAMPANIA INGRESANDO EL NOMBRE Y LAS FECHAS REQUERIDAS CONTANDO CON LA FUNCION CREAR_CAMPANIA
 # ADEMAS CUENTA CON LA FUNCION AGREGAR ANUNCIO PARA QUE AL MOMENTO DE INSTANCIAR LA CAMPAÑA AUTOMATICAMENTE LLAME A ESTA FUNCION PARA INCLUIR
 # LOS DATOS REQUERIDOS PARA CREAR EL PRIMER ANUNCIO.
 # POSTERIORMENTE SE EJECUTA LA FUNCION MENU_PRINCIPAL EN DONDE SE OFRECE LA OPCION DE AGREGAR MAS ANUNCIOS, MODIFICAR EL NOMBRE DE LA CAMPAÑA,
 # VISUALIZAR LOS DATOS DE LA CAMPAÑA Y VISUALIZAR LOS TIPOS Y FORMATOS DE LOS ANUNCIOS
-
-from datetime import datetime
-from campania import *
-from errores import *
-
 
 def agregar_anuncio(creacion=False):
     while True:
@@ -47,7 +47,14 @@ def agregar_anuncio(creacion=False):
                 print(f"opciones disponibles: {Display.SUB_TIPOS}")
             else:
                 print(f"opciones disponibles: {Social.SUB_TIPOS}")
-            datos_anuncio.append(input("\n\n        >>> "))
+            sub_tipo = (input("\n\n        >>> "))
+            if (opcion == 1 and sub_tipo in Video.SUB_TIPOS or
+                opcion == 2 and sub_tipo in Display.SUB_TIPOS or
+                opcion == 3 and sub_tipo in Social.SUB_TIPOS):
+
+                datos_anuncio.append(sub_tipo)
+            else:
+                raise SubTipoInvalidoError
 
             if opcion == 1:
                 datos_anuncio.append(int(input("Ingresa la duracion del video:\n\n        >>> ")))
@@ -117,12 +124,15 @@ def menu_principal(mi_campania):
             input("\nEnter para continuar...")
         
         elif opcion == "3":
-            nuevo_nombre = input("Ingrese el nuevo nombre (Máximo 250 caracteres)")
+            nuevo_nombre = input("Ingrese el nuevo nombre (Máximo 250 caracteres)\n\n    >>>> ")
             mi_campania.nombre = nuevo_nombre
 
         elif opcion == "4":
             print(Anuncio.mostrar_formatos())
             input("\nEnter para continuar...")
+
+        elif opcion == "5":
+            exit()
 
 
 

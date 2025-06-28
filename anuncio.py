@@ -1,6 +1,6 @@
 
 from abc import ABC, abstractmethod
-from errores import *
+from errores import SubTipoInvalidoError
 
 class Anuncio(ABC):
     def __init__(self, ancho: int, alto:int, url_archivo:str, url_clic:str, sub_tipo:str):

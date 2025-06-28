@@ -1,3 +1,6 @@
 
-28/06/2025 15:44:08 - LargoExcedidoError: aaaaaaaaaaaa
 28/06/2025 15:44:33 - LargoExcedidoError: Nombre excede los 250 caracteres
+28/06/2025 16:37:25 - SubTipoInvalidoError: Subtipo ingresado no es válido
+28/06/2025 16:38:38 - LargoExcedidoError: Nombre excede los 250 caracteres
+28/06/2025 16:39:16 - SubTipoInvalidoError: Subtipo ingresado no es válido
+28/06/2025 16:39:54 - SubTipoInvalidoError: Subtipo ingresado no es válido
