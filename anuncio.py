@@ -70,23 +70,23 @@ class Anuncio(ABC):
     ##### MÉTODOS DE LA CLASE ANUNCIO #####
     @staticmethod
     def mostrar_formatos():
-        print(f"""
+        return(f"""
 FORMATO 1: {Video.FORMATO}
 ==================
-- Subtipo 1: {Video.SUB_TIPOS}
-- Subtipo 2: {Video.SUB_TIPOS}
+- Subtipo 1: {Video.SUB_TIPOS[0]}
+- Subtipo 2: {Video.SUB_TIPOS[1]}
 
 FORMATO 2: {Display.FORMATO}
 ==================
-- Subtipo 1: {Display.SUB_TIPOS}
-- Subtipo 2: {Display.SUB_TIPOS}
+- Subtipo 1: {Display.SUB_TIPOS[0]}
+- Subtipo 2: {Display.SUB_TIPOS[1]}
 
 FORMATO 3: {Social.FORMATO}
 ==================
-- Subtipo 1: {Social.SUB_TIPOS}
-- Subtipo 2: {Social.SUB_TIPOS}
+- Subtipo 1: {Social.SUB_TIPOS[0]}
+- Subtipo 2: {Social.SUB_TIPOS[1]}
 """)
-        pass
+
 
     @abstractmethod
     def comprimir_anuncio():

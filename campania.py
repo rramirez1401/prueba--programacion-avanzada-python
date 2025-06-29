@@ -9,15 +9,9 @@ class Campania:
         self.__fecha_termino = fecha_termino
         self.__anuncios = [self.componer_anuncio(*datos_anuncio)]
 
-
+## DEFINO EL METODO COMPONER_ANUNCIO EL CUAL RESPONDE DE MANERA DISTINTA EN BASE A SI SE ESTÁ CREANDO UNA INSTANCIA DE CAMPAÑA O SI LA
+#  CAMPAÑA A FUE CREADA Y SOLO SE REQUIERE AÑADIR MAS ANUNCIOS, ESTO SE DEFINE CON EL PARAMETRO CREACION, EL CUAL PUEDE SER TRUE O FALSE
     def componer_anuncio(self,opcion,ancho, alto, url_archivo, url_clic, sub_tipo, duracion, creacion):
-        print("hasta aqui")
-        print(opcion)
-        print(url_archivo)
-        print(url_clic)
-        print(sub_tipo)
-        print(duracion)
-        print(creacion)
         if opcion == 1:
             new_anuncio = Video(url_archivo, url_clic, sub_tipo, duracion)
         elif opcion == 2:
@@ -36,7 +30,7 @@ class Campania:
     
     @nombre.setter
     def nombre(self, nombre):
-        if len(nombre) <= 10:
+        if len(nombre) <= 250:
             self.__nombre = nombre
 
         else:

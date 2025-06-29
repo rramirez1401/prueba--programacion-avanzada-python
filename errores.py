@@ -7,7 +7,7 @@ datetime_CL = datetime.datetime.now(tz_CL)
 ruta_log = "error.log"
 
 
-
+##DEFINO LOS ERRORES, EL MENSAJE POR DEFECTO QUE ENTREGA Y LA CONFIGURACION NECESARIA PARA INGRESARLA EN EL ARCHIVO ERROR.LOG
 class Error(Exception):
     def __init__(self, mensaje="Ha ocurrido un error"):
         self.timestamp = datetime.datetime.now(pytz.timezone('America/Santiago'))
